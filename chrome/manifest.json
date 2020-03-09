@@ -1,0 +1,16 @@
+{
+   "name": "rickroll",
+   "version": "1.0",
+   "description": "rickroll",
+   "manifest_version": 2,
+   "background": {
+     "scripts": ["rickroll.js"],
+     "persistent": true
+   },
+   "permissions": [
+     "webRequest",
+     "webRequestBlocking",
+     "storage",
+     "<all_urls>"
+   ]
+ }
