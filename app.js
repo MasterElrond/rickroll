@@ -8,20 +8,23 @@ const urls = [
 const numUrls = urls.length-1;
 var index = 0;
 
-http.createServer(function(request, response) {
+function getUrl() {
   if (index >= numUrls) {
     index = 0;
   }
   else {
     index += 1;
   }
-  let url;
   try {
-    url = urls[index];
+    return urls[index];
   }
   catch {
-    url = urls[0];
+    return urls[0];
   }
+
+}
+http.createServer(function(request, response) {
+  const url = getUrl();
   response.writeHead(302, {'Location': url});
   response.end();
 }).listen(PORT);
