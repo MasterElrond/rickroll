@@ -9,7 +9,7 @@ const numUrls = urls.length-1;
 var index = 0;
 
 http.createServer(function(request, response) {
-  if (index >== numUrls) {
+  if (index >= numUrls) {
     index = 0;
   }
   else {
