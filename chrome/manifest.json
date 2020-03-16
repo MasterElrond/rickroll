@@ -4,13 +4,18 @@
    "description": "rickroll",
    "manifest_version": 2,
    "background": {
-     "scripts": ["rickroll.js"],
+     "scripts": ["background.js"],
      "persistent": true
    },
+   "content_scripts": [{
+     "matches": ["<all_urls>"],
+     "js": ["rollTime.js"]
+   }],
    "permissions": [
      "webRequest",
      "webRequestBlocking",
      "storage",
-     "<all_urls>"
+     "<all_urls>",
+     "tabs"
    ]
  }
