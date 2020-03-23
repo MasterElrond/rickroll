@@ -5,7 +5,7 @@ const cache = {
   rollTime:"0",
 };
 
-const excludePattern = new RegExp('https:\/\/.*google\.com\/.*');
+const includePattern = new RegExp('((porn)|(xxx)|(xvideo)|(chan))');
 
 function getUrl() {
   if (parseInt(cache.rollTime) >=  rickRollLength) {
@@ -23,7 +23,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
-    if (!details.url.match(excludePattern)) {
+    if (details.url.match(includePattern)) {
       return {
         redirectUrl: getUrl()
       }
